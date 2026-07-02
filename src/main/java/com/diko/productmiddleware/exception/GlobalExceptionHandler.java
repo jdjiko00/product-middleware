@@ -24,12 +24,25 @@ public class GlobalExceptionHandler {
         return problemDetail;
     }
 
+    @ExceptionHandler(RestClientException.class)
     public ProblemDetail handleRestClientException(RestClientException ex) {
 
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.SERVICE_UNAVAILABLE, ex.getMessage());
 
         problemDetail.setTitle("API Connection Error");
         problemDetail.setType(URI.create("urn:product-middleware:error:api-connection-failed"));
+        problemDetail.setProperty("timestamp", LocalDateTime.now().toString());
+
+        return problemDetail;
+    }
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ProblemDetail handleProductNotFoundException(ProductNotFoundException ex) {
+
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
+
+        problemDetail.setTitle("Product Not Found");
+        problemDetail.setType(URI.create("urn:product-middleware:error:product-not-found"));
         problemDetail.setProperty("timestamp", LocalDateTime.now().toString());
 
         return problemDetail;

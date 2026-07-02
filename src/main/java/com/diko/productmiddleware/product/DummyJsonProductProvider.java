@@ -14,7 +14,7 @@ public class DummyJsonProductProvider implements ProductProvider {
     private final ProductMapper productMapper;
     private final String API_URL = "https://dummyjson.com/products";
 
-    public DummyJsonProductProvider (RestTemplate restTemplate, ProductMapper productMapper) {
+    public DummyJsonProductProvider(RestTemplate restTemplate, ProductMapper productMapper) {
 
         this.restTemplate = restTemplate;
         this.productMapper = productMapper;
