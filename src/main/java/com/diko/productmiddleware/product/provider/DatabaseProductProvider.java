@@ -1,23 +1,21 @@
-package com.diko.productmiddleware.product;
+package com.diko.productmiddleware.product.provider;
 
+import com.diko.productmiddleware.product.Product;
+import com.diko.productmiddleware.product.mapper.ProductMapper;
 import com.diko.productmiddleware.product.repository.ProductRepository;
-import org.springframework.context.annotation.Primary;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-@Primary
+@ConditionalOnProperty(name = "product.source", havingValue = "database", matchIfMissing = true)
+@RequiredArgsConstructor
 public class DatabaseProductProvider implements ProductProvider {
 
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
-
-    public DatabaseProductProvider(ProductRepository productRepository, ProductMapper productMapper) {
-
-        this.productRepository = productRepository;
-        this.productMapper = productMapper;
-    }
 
     @Override
     public List<Product> fetchProducts() {

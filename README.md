@@ -42,7 +42,21 @@ The application will now be accessible at `http://localhost:8080`.
 
 ---
 
-## 4. How to Test the Application
+## 4. Switching Data Sources (Feature Toggle)
+
+The application is designed to easily switch between different product data sources without altering the core logic. You can toggle between the **H2 Database** and the **DummyJSON API**.
+
+1. **Changing via Code / IDE**
+    - If running locally via your IDE, open `src/main/resources/application.yaml` and modify the `product.source` property from **database** to **dummyjson**.
+2. **Changing via Docker (No Rebuild Required!)**
+    - If using Docker, you can dynamically override the configuration using environment variables. To start the container using the **DummyJSON API**, simply pass the `-e` flag:
+    ```bash
+    docker run -p 8080:8080 -e PRODUCT_SOURCE=dummyjson product-middleware
+    ```
+   
+---
+
+## 5. How to Test the Application
 
 The easiest and recommended way to test the application is via the integrated **Swagger UI (OpenAPI)**.
 

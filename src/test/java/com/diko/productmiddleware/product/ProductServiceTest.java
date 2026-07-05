@@ -1,6 +1,8 @@
 package com.diko.productmiddleware.product;
 
 import com.diko.productmiddleware.exception.ProductNotFoundException;
+import com.diko.productmiddleware.product.provider.ProductProvider;
+import com.diko.productmiddleware.product.service.ProductService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

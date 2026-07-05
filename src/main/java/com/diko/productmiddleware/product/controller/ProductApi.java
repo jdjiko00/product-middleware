@@ -1,5 +1,6 @@
-package com.diko.productmiddleware.product;
+package com.diko.productmiddleware.product.controller;
 
+import com.diko.productmiddleware.product.Product;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;

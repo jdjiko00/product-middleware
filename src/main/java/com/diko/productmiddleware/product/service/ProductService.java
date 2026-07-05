@@ -1,6 +1,9 @@
-package com.diko.productmiddleware.product;
+package com.diko.productmiddleware.product.service;
 
 import com.diko.productmiddleware.exception.ProductNotFoundException;
+import com.diko.productmiddleware.product.Product;
+import com.diko.productmiddleware.product.provider.ProductProvider;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -10,14 +13,10 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class ProductService {
 
     private final ProductProvider productProvider;
-
-    public ProductService(ProductProvider productProvider) {
-
-        this.productProvider = productProvider;
-    }
 
     @Cacheable(value = "productsCache")
     public List<Product> getProducts(String category, Double minPrice, Double maxPrice, String name) {

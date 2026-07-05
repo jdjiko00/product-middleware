@@ -1,20 +1,19 @@
-package com.diko.productmiddleware.product;
+package com.diko.productmiddleware.product.controller;
 
+import com.diko.productmiddleware.product.Product;
+import com.diko.productmiddleware.product.service.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/products")
 public class ProductController implements ProductApi {
 
     private final ProductService productService;
-
-    public ProductController(ProductService productService) {
-
-        this.productService = productService;
-    }
 
     @Override
     @GetMapping

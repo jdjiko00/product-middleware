@@ -1,4 +1,4 @@
-package com.diko.productmiddleware.product;
+package com.diko.productmiddleware.product.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

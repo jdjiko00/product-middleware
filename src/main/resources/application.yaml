@@ -18,3 +18,8 @@ spring:
     console:
       enabled: true
       path: /h2-console
+product:
+  source: database
+dummyjson:
+  api:
+    url: https://dummyjson.com/products

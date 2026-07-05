@@ -1,5 +1,7 @@
-package com.diko.productmiddleware.product;
+package com.diko.productmiddleware.product.mapper;
 
+import com.diko.productmiddleware.product.Product;
+import com.diko.productmiddleware.product.dto.DummyJsonProductDto;
 import com.diko.productmiddleware.product.entity.ProductEntity;
 import org.springframework.stereotype.Component;
 
@@ -24,9 +26,12 @@ public class ProductMapper {
     }
 
     public Product toDomain(ProductEntity entity) {
+
         if (entity == null) {
+
             return null;
         }
+
         return Product.builder()
                 .id(entity.getId())
                 .title(entity.getTitle())

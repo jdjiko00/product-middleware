@@ -1,6 +1,8 @@
 package com.diko.productmiddleware.product;
 
 import com.diko.productmiddleware.exception.ProductNotFoundException;
+import com.diko.productmiddleware.product.controller.ProductController;
+import com.diko.productmiddleware.product.service.ProductService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
