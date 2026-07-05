@@ -7,7 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
-public class ProductController {
+public class ProductController implements ProductApi {
 
     private final ProductService productService;
 
@@ -16,6 +16,7 @@ public class ProductController {
         this.productService = productService;
     }
 
+    @Override
     @GetMapping
     public ResponseEntity<List<Product>> getProducts(
             @RequestParam(required = false) String category,
@@ -28,6 +29,7 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
+    @Override
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
 
